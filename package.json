@@ -1,0 +1,27 @@
+{
+  "name": "parcial01-libroviajero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlorBrv/parcial01-LibroViajero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/FlorBrv/parcial01-LibroViajero/issues"
+  },
+  "homepage": "https://github.com/FlorBrv/parcial01-LibroViajero#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.4"
+  }
+}
