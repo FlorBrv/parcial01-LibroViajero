@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API LibroViajero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="encabezado text-white py-4">
+        <div class="container text-center">
+            <h1 class="mb-1">LibroViajero</h1>
+            <p class="mb-0">API REST para registrar libros y ejemplares físicos en circulación entre lectores</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section class="mb-5">
+            <h2 class="h4 mb-3">Sobre el proyecto</h2>
+            <p>
+                <strong>LibroViajero</strong> permite gestionar un catálogo de obras bibliográficas,
+                registrar ejemplares físicos asociados a cada libro y a su propietario original,
+                y consultar su disponibilidad y ubicación actual.
+            </p>
+        </section>
+
+        <!-- Accesos directos a los endpoints GET -->
+        <section class="mb-5">
+            <h2 class="h4 mb-3">Accesos rápidos a la API (GET)</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Usuarios</h3>
+                            <p class="card-text text-muted small">Lectores que registran ejemplares físicos.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="/api/usuarios" target="_blank">/api/usuarios</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Libros</h3>
+                            <p class="card-text text-muted small">Catálogo general, filtros y búsqueda por título.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="/api/libros" target="_blank">/api/libros</a></li>
+                                <li><a href="/api/libros?genero=Novela" target="_blank">/api/libros?genero=Novela</a></li>
+                                <li><a href="/api/libros?titulo=rayuela" target="_blank">/api/libros?titulo=rayuela</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Ejemplares</h3>
+                            <p class="card-text text-muted small">Copias físicas, estado y ubicación actual.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="/api/ejemplares" target="_blank">/api/ejemplares</a></li>
+                                <li><a href="/api/ejemplares?estado=disponible" target="_blank">/api/ejemplares?estado=disponible</a></li>
+                                <li><a href="/api/ejemplares?ubicacion=CABA" target="_blank">/api/ejemplares?ubicacion=CABA</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentación de todos los endpoints -->
+        <section class="mb-4">
+            <h2 class="h4 mb-3">Listado completo de endpoints</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle bg-white">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Método</th>
+                            <th>Endpoint</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code><a href="/api/usuarios" target="_blank">/api/usuarios</a></code></td>
+                            <td>Listar todos los usuarios</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code>/api/usuarios/:id</code></td>
+                            <td>Obtener un usuario por ID</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-primary">POST</span></td>
+                            <td><code>/api/usuarios</code></td>
+                            <td>Crear un nuevo usuario</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-warning text-dark">PUT</span></td>
+                            <td><code>/api/usuarios/:id</code></td>
+                            <td>Actualizar un usuario existente</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-danger">DELETE</span></td>
+                            <td><code>/api/usuarios/:id</code></td>
+                            <td>Eliminar un usuario (si no tiene ejemplares asociados)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code><a href="/api/libros" target="_blank">/api/libros</a></code></td>
+                            <td>Listar libros (acepta filtros <code>?titulo=</code>, <code>?autor=</code>, <code>?genero=</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code>/api/libros/:id</code></td>
+                            <td>Obtener un libro por ID</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code>/api/libros/:id/ejemplares</code></td>
+                            <td>Listar los ejemplares de un libro (acepta <code>?estado=</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-primary">POST</span></td>
+                            <td><code>/api/libros</code></td>
+                            <td>Crear un nuevo libro</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-warning text-dark">PUT</span></td>
+                            <td><code>/api/libros/:id</code></td>
+                            <td>Actualizar un libro existente</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-danger">DELETE</span></td>
+                            <td><code>/api/libros/:id</code></td>
+                            <td>Eliminar un libro (si no tiene ejemplares asociados)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code><a href="/api/ejemplares" target="_blank">/api/ejemplares</a></code></td>
+                            <td>Listar ejemplares (acepta filtros <code>?estado=</code>, <code>?ubicacion=</code>, <code>?codigo=</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td><code>/api/ejemplares/:id</code></td>
+                            <td>Obtener un ejemplar por ID</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-primary">POST</span></td>
+                            <td><code>/api/ejemplares</code></td>
+                            <td>Registrar un nuevo ejemplar físico</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-warning text-dark">PUT</span></td>
+                            <td><code>/api/ejemplares/:id</code></td>
+                            <td>Actualizar estado, ubicación o datos de un ejemplar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-danger">DELETE</span></td>
+                            <td><code>/api/ejemplares/:id</code></td>
+                            <td>Eliminar un ejemplar por ID</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center small">
+            <p class="mb-1">
+                <strong>Estudiante:</strong> Florencia Bravo |
+                <strong>Materia:</strong> Aplicaciones Híbridas
+            </p>
+            <p class="mb-0">
+                <strong>Docente:</strong> Jonathan Emanuel Cruz |
+                <strong>Comisión:</strong> DWN4AV
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
