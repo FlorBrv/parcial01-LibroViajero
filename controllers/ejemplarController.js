@@ -95,7 +95,7 @@ class EjemplarController {
                 });
             }
 
-            // Verificamos que existan el libro y el usuario propietario
+            // Validacion de libro y usuario
             const libroExiste = await Libro.findById(libro);
             if (!libroExiste) {
                 return res.status(404).json({

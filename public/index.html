@@ -8,31 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="encabezado text-white py-4">
-        <div class="container text-center">
-            <h1 class="mb-1">LibroViajero</h1>
-            <p class="mb-0">API REST para registrar libros y ejemplares físicos en circulación entre lectores</p>
-        </div>
-    </header>
-
     <main class="container my-5">
-        <section class="mb-5">
-            <h2 class="h4 mb-3">Sobre el proyecto</h2>
-            <p>
-                <strong>LibroViajero</strong> permite gestionar un catálogo de obras bibliográficas,
-                registrar ejemplares físicos asociados a cada libro y a su propietario original,
-                y consultar su disponibilidad y ubicación actual.
-            </p>
-        </section>
+        <header class="hero py-3 mb-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <h1 class="display-6 fw-bold titulo-principal mb-3">
+                        Los libros no terminan en la última página, comienzan un nuevo viaje.
+                    </h1>
+                    <p class="lead texto-descripcion mb-4">
+                        <strong class="fw-bold">LibroViajero</strong> es una plataforma diseñada para fomentar la circulación de libros físicos, permitiendo que cada ejemplar encuentre nuevos lectores y continúe su recorrido. <br>
+
+                        Cada usuario podrá registrar sus libros y poner sus ejemplares a disposición de la comunidad. A través de una identificación única, será posible conocer su disponibilidad, ubicación y seguir su recorrido a medida que pasa de un lector a otro. <br>
+
+                        La iniciativa busca promover el acceso a la lectura, la reutilización de libros y el consumo responsable.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="/api/libros" target="_blank" class="btn btn-principal">Ver libros</a>
+                        <a href="/api/ejemplares?estado=disponible" target="_blank" class="btn btn-secundario">Ejemplares disponibles</a>     
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="logo.png" alt="Ilustración de LibroViajero" class="img-fluid logo-hero">
+                </div>
+            </div>
+        </header>
 
         <!-- Accesos directos a los endpoints GET -->
         <section class="mb-5">
-            <h2 class="h4 mb-3">Accesos rápidos a la API (GET)</h2>
+            <h2 class="h4 seccion-titulo mb-3">Accesos rápidos a la API (GET)</h2>
             <div class="row g-3">
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card tarjeta-api h-100 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5 card-title">Usuarios</h3>
+                            <h3 class="h5 card-title titulo-tarjeta">Usuarios</h3>
                             <p class="card-text text-muted small">Lectores que registran ejemplares físicos.</p>
                             <ul class="list-unstyled mb-0">
                                 <li><a href="/api/usuarios" target="_blank">/api/usuarios</a></li>
@@ -42,9 +50,9 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card tarjeta-api h-100 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5 card-title">Libros</h3>
+                            <h3 class="h5 card-title titulo-tarjeta">Libros</h3>
                             <p class="card-text text-muted small">Catálogo general, filtros y búsqueda por título.</p>
                             <ul class="list-unstyled mb-0">
                                 <li><a href="/api/libros" target="_blank">/api/libros</a></li>
@@ -56,9 +64,9 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card tarjeta-api h-100 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5 card-title">Ejemplares</h3>
+                            <h3 class="h5 card-title titulo-tarjeta">Ejemplares</h3>
                             <p class="card-text text-muted small">Copias físicas, estado y ubicación actual.</p>
                             <ul class="list-unstyled mb-0">
                                 <li><a href="/api/ejemplares" target="_blank">/api/ejemplares</a></li>
@@ -72,11 +80,11 @@
         </section>
 
         <!-- Documentación de todos los endpoints -->
-        <section class="mb-4">
-            <h2 class="h4 mb-3">Listado completo de endpoints</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover align-middle bg-white">
-                    <thead class="table-light">
+        <section id="endpoints" class="mb-4">
+            <h2 class="h4 seccion-titulo mb-3">Listado completo de endpoints</h2>
+            <div class="table-responsive rounded-3 shadow-sm">
+                <table class="table table-bordered table-hover align-middle bg-white mb-0">
+                    <thead class="tabla-encabezado">
                         <tr>
                             <th>Método</th>
                             <th>Endpoint</th>
@@ -170,7 +178,7 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white py-3 mt-auto">
+    <footer class="pie-pagina text-white py-3 mt-auto">
         <div class="container text-center small">
             <p class="mb-1">
                 <strong>Estudiante:</strong> Florencia Bravo |

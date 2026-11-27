@@ -149,7 +149,7 @@ class UsuarioController {
                 });
             }
 
-            // No dejamos borrar un usuario si todavía tiene ejemplares registrados
+            // No se puede borrar un usuario si todavía tiene ejemplares registrados
             const ejemplares = await Ejemplar.find({ propietario: id });
             if (ejemplares.length > 0) {
                 return res.status(400).json({

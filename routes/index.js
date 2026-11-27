@@ -7,7 +7,7 @@ const routerAPI = (app) => {
     app.use('/api/libros', libroRouter);
     app.use('/api/ejemplares', ejemplarRouter);
 
-    // Si piden una ruta de /api que no existe, respondemos 404 en JSON
+    // Error 404 si se solicita una ruta de la API que no existe
     app.use('/api', (req, res) => {
         res.status(404).json({
             message: 'Ruta de la API no encontrada'

@@ -10,7 +10,7 @@ class LibroController {
             const { titulo, autor, genero } = req.query;
             const filtro = {};
 
-            // Armamos el filtro según los parámetros que lleguen por query
+            // Filtro según los parámetros que lleguen por query
             if (titulo) {
                 filtro.titulo = { $regex: titulo, $options: 'i' };
             }
@@ -200,7 +200,7 @@ class LibroController {
                 });
             }
 
-            // No dejamos borrar un libro si todavía tiene ejemplares cargados
+            // Nose puede borrar un libro si todavía tiene ejemplares cargados
             const ejemplares = await Ejemplar.find({ libro: id });
             if (ejemplares.length > 0) {
                 return res.status(400).json({
